@@ -3,62 +3,42 @@ package com.xcodev.common;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 返回结果
  *
  * @author ixiao
  */
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class XCodevResult {
+public class XCodevResult<T> implements Serializable {
     private int code;
     private String msg;
-    private Object data;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
+    private T data;
 
     @JsonCreator
-    private XCodevResult(@JsonProperty("code") int code, @JsonProperty("data") Object data) {
+    private XCodevResult(@JsonProperty("code") int code, @JsonProperty("data") T data) {
         this.code = code;
         this.data = data;
     }
 
-    private XCodevResult(int code, String msg) {
+    private  XCodevResult(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public static XCodevResult ok() {
-        return new XCodevResult(200, null);
+    public static <T> XCodevResult<T> ok() {
+        return new XCodevResult<>(200, null);
     }
 
-    public static XCodevResult ok(Object data) {
-        return new XCodevResult(200, data);
+    public static <T> XCodevResult<T> ok(T data) {
+        return new XCodevResult<>(200, data);
     }
 
-    public static XCodevResult error(String msg) {
-        return new XCodevResult(500, "服务器内部错误:" + msg);
+    public static <T> XCodevResult<T> error(String msg) {
+        return new XCodevResult<>(500, "服务器内部错误:" + msg);
     }
 }

@@ -1,0 +1,4 @@
+deepseek:
+  model: deepseek-reasoner
+  api-key: ***
+  url: https://api.deepseek.com/chat/completions
