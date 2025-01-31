@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import static com.xcodev.common.XCodevResult.ok;
+import static com.xcodev.common.XcodevResult.ok;
 
 /**
  * 统一返回结果值
@@ -39,7 +39,7 @@ public class ResultHandler implements ResponseBodyAdvice<Object> {
         if (body instanceof String) {
             return new Gson().toJson(ok(body));
         }
-        if (body instanceof XCodevResult<?> result) {
+        if (body instanceof XcodevResult<?> result) {
             return result;
         }
         return ok(body);

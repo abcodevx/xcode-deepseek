@@ -2,7 +2,7 @@ package com.xcodev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
  * DeepSeek测试工程
@@ -11,10 +11,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 2025/1/26
  **/
 
-@ConfigurationProperties
 @SpringBootApplication
-public class XCodevDeepSeekApplication {
+@EnableConfigurationProperties
+public class XcodevDeepSeekApplication {
     public static void main(String[] args) {
-        SpringApplication.run(XCodevDeepSeekApplication.class, args);
+        SpringApplication.run(XcodevDeepSeekApplication.class, args);
     }
 }

@@ -14,31 +14,31 @@ import java.io.Serializable;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class XCodevResult<T> implements Serializable {
+public class XcodevResult<T> implements Serializable {
     private int code;
     private String msg;
     private T data;
 
     @JsonCreator
-    private XCodevResult(@JsonProperty("code") int code, @JsonProperty("data") T data) {
+    private XcodevResult(@JsonProperty("code") int code, @JsonProperty("data") T data) {
         this.code = code;
         this.data = data;
     }
 
-    private  XCodevResult(int code, String msg) {
+    private XcodevResult(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public static <T> XCodevResult<T> ok() {
-        return new XCodevResult<>(200, null);
+    public static <T> XcodevResult<T> ok() {
+        return new XcodevResult<>(200, null);
     }
 
-    public static <T> XCodevResult<T> ok(T data) {
-        return new XCodevResult<>(200, data);
+    public static <T> XcodevResult<T> ok(T data) {
+        return new XcodevResult<>(200, data);
     }
 
-    public static <T> XCodevResult<T> error(String msg) {
-        return new XCodevResult<>(500, "服务器内部错误:" + msg);
+    public static <T> XcodevResult<T> error(String msg) {
+        return new XcodevResult<>(500, "服务器内部错误:" + msg);
     }
 }

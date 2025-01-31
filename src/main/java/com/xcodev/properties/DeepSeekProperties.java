@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * 配置类
  *
  * @author xCode
- * @date 2025/1/26
  **/
 
 @Data

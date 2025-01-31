@@ -10,7 +10,6 @@ import java.util.List;
  * 对象返回信息
  *
  * @author xCode
- * @date 2025/1/26
  **/
 
 @Data
@@ -26,7 +25,7 @@ public class ChatResult {
     private String object;
     private Usage usage;
 
-    // Getters and Setters
+ 
     @Data
     @NoArgsConstructor
     public static class Choice {
@@ -35,7 +34,7 @@ public class ChatResult {
         private Message message;
         private LogProbs logprobs;
 
-        // Getters and Setters
+
         @Data
         @NoArgsConstructor
         public static class Message {
@@ -44,30 +43,27 @@ public class ChatResult {
             private List<ToolCall> toolCalls;
             private String role;
 
-            // Getters and Setters
             @Data
             @NoArgsConstructor
             public static class ToolCall {
                 private String id;
                 private String type;
                 private Function function;
-
-                // Getters and Setters
+                
                 @Data
                 @NoArgsConstructor
                 public static class Function {
                     private String name;
                     private String arguments;
-
-                    // Getters and Setters
                 }
             }
         }
 
+        @Data
+        @NoArgsConstructor
         public static class LogProbs {
             private List<ContentLog> content;
-
-            // Getters and Setters
+            
             @Data
             @NoArgsConstructor
             public static class ContentLog {
@@ -76,15 +72,13 @@ public class ChatResult {
                 private List<Integer> bytes;
                 private List<TopLogProb> topLogprobs;
 
-                // Getters and Setters
+
                 @Data
                 @NoArgsConstructor
                 public static class TopLogProb {
                     private String token;
                     private double logprob;
                     private List<Integer> bytes;
-
-                    // Getters and Setters
                 }
             }
         }
@@ -100,13 +94,11 @@ public class ChatResult {
         private int totalTokens;
         private CompletionTokensDetails completionTokensDetails;
 
-        // Getters and Setters
         @Data
         @NoArgsConstructor
         public static class CompletionTokensDetails {
             private int reasoningTokens;
 
-            // Getters and Setters
         }
     }
 }
